@@ -1,0 +1,11 @@
+.tickets {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 103px;
+  gap: 20px;
+}
+
+.filter {
+  position: relative;
+  bottom: 70px;
+}
