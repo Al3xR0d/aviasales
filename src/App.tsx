@@ -1,27 +1,33 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css';
 import { TicketList } from './components/TicketList/TicketList';
 import { Header } from './components/Header/Header';
-import { ApiTicket } from './components/Api/Api';
-import { useEffect } from 'react';
+import { ApiTicket, Tickets } from './components/Api/Api';
+import { useEffect, useState } from 'react';
 
-function App() {
-  // useEffect(() => {
-  //   ApiTicket.getSearchId();
-  // }, []);
+export interface Props {
+  setLoading: (item: Tickets) => void;
+  loading: Tickets;
+}
+
+const App = () => {
+  const [loading, setLoading] = useState<Tickets>({ tickets: [], stop: false });
+
+  // console.log(loading);
 
   useEffect(() => {
-    ApiTicket.getTicketList();
+    ApiTicket.getTicketList().then((item) => {
+      if (item) {
+        setLoading(item);
+      }
+    });
   }, []);
 
   return (
     <>
       <Header />
-      <TicketList />
+      <TicketList setLoading={setLoading} loading={loading} />
     </>
   );
-}
+};
 
 export default App;

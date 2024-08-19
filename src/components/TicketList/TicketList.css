@@ -3,9 +3,21 @@
   justify-content: flex-end;
   margin-right: 103px;
   gap: 20px;
+  flex-direction: column;
+  align-items: end;
 }
 
 .filter {
-  position: relative;
-  bottom: 70px;
+  position: absolute;
+  bottom: 575px;
+  left: 60px;
 }
+
+/* .ticket {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 103px;
+  gap: 20px;
+  flex-direction: column;
+  align-items: end
+} */
