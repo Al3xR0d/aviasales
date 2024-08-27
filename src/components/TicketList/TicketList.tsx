@@ -1,20 +1,22 @@
 import './TicketList.css';
 import { Ticket } from '../Ticket/Ticket';
-import { Filter } from '../Filter/Filter';
 import { Props } from '../../App';
+import { v4 as uuid } from 'uuid';
 
-export const TicketList = ({ loading }: Props) => {
-  // console.log(loading);
+export const TicketList = ({ tickets }: Props) => {
 
   return (
     <>
       <div className="tickets">
-        <div className="filter">
-          <Filter />
-        </div>
-        {loading.tickets?.map((item, index) => (
-          <Ticket key={index} price={item.price} carrier={item.carrier} segments={item.segments} />
-        ))}
+        <ul className="ticketList">
+          {tickets?.map((item) => {
+            return (
+              <li key={uuid()}>
+                <Ticket price={item.price} carrier={item.carrier} segments={item.segments} />
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </>
   );

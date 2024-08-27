@@ -1,0 +1,101 @@
+.buttons {
+  display: flex;
+  gap: 0;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  margin-right: 105px;
+}
+
+.button {
+  height: 50px;
+  border-radius: 0%;
+}
+
+.ant-tabs-nav-list {
+  width: 542px;
+}
+
+.ant-tabs-tab {
+  background: black;
+  padding: 15px !important;
+  border: 1px solid rgb(223, 229, 236) !important;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255);
+  width: 100%;
+}
+
+:where(.css-dev-only-do-not-override-1c0na6j).ant-tabs .ant-tabs-tab + .ant-tabs-tab {
+  margin: 0;
+}
+
+.ant-tabs-tab .ant-tabs-tab-active {
+  background-color: rgb(33, 150, 243) !important;
+}
+:where(.css-dev-only-do-not-override-1c0na6j).ant-tabs .ant-tabs-tab:hover {
+  background: rgb(33, 150, 243);
+}
+
+:where(.css-dev-only-do-not-override-1c0na6j).ant-tabs {
+  background: #fff;
+}
+
+:where(.css-dev-only-do-not-override-1c0na6j).ant-tabs .ant-tabs-tab {
+  color: rgb(74, 74, 74);
+  justify-content: center;
+}
+
+:where(.css-dev-only-do-not-override-1c0na6j).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #fff;
+}
+
+.ant-tabs-tab + .ant-tabs-tab-active {
+  background-color: rgb(33, 150, 243);
+  color: white;
+}
+
+.buttons > .button {
+  border-radius: 8px 8px 8px 8px;
+}
+
+:where(.css-dev-only-do-not-override-1c0na6j).ant-tabs .ant-tabs-ink-bar {
+  background: transparent;
+}
+
+.ant-tabs .ant-tabs-top .ant-tabs-mobile .ant-tabs-centered button .css-dev-only-do-not-override-1c0na6j {
+  width: 542px;
+}
+
+.ant-tabs-nav-list > .ant-tabs-tab-active {
+  background: rgb(33, 150, 243);
+}
+
+div[data-node-key='cheapest'] {
+  border-radius: 8px 0 0 8px;
+}
+
+div[data-node-key='optimal'] {
+  border-radius: 0 8px 8px 0;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.spin {
+  display: flex;
+  justify-content: center;
+}
+
+.ticketsButton {
+  width: 545px;
+  height: 50px;
+  border-radius: 5px;
+  background: rgb(33, 150, 243);
+  margin-top: 10px;
+}
+
+.alert {
+  width: 543px;
+}

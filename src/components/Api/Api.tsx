@@ -1,23 +1,5 @@
 import axios from 'axios';
-
-export interface Segment {
-  date: string;
-  destination: string;
-  duration: number;
-  origin: string;
-  stops: string[];
-}
-
-export interface TicketProps {
-  carrier: string;
-  price: number;
-  segments: Segment[];
-}
-
-export interface Tickets {
-  tickets: TicketProps[];
-  stop: boolean;
-}
+import { Tickets } from '../../types/types';
 
 export class Api {
   url: string;
@@ -26,27 +8,27 @@ export class Api {
     this.url = 'https://aviasales-test-api.kata.academy/';
   }
 
-  getSearchId = async (): Promise<string | undefined> => {
+  getSearchId = async (): Promise<string> => {
     try {
       const response = await axios.get(this.url + 'search');
-      // console.log(response.data.searchId);
       return response.data.searchId;
     } catch (err) {
-      console.error(err);
+      console.error('Ошибка загрузки searchId:', err);
+      throw new Error('Ошибка загрузки searchId');
     }
   };
 
-  getTicketList = async (): Promise<Tickets | undefined> => {
+  getTicketList = async (): Promise<Tickets> => {
     try {
-      // const searchId = await this.getSearchId();
-      const response = await axios.get(this.url + 'tickets?searchId=' + (await this.getSearchId()));
-      // console.log(response.data);
+      const searchId = await this.getSearchId();
+      const response = await axios.get(this.url + 'tickets?searchId=' + searchId);
       return {
         tickets: response.data.tickets,
         stop: response.data.stop,
       };
     } catch (err) {
-      console.error(err);
+      console.error('Ошибка загрузки ticket list:', err);
+      throw new Error('Ошибка загрузки ticket list');
     }
   };
 }

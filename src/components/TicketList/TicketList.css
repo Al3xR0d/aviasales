@@ -7,17 +7,10 @@
   align-items: end;
 }
 
-.filter {
-  position: absolute;
-  bottom: 575px;
-  left: 60px;
-}
-
-/* .ticket {
+.ticketList {
+  list-style-type: none;
   display: flex;
-  justify-content: flex-end;
-  margin-right: 103px;
-  gap: 20px;
   flex-direction: column;
-  align-items: end
-} */
+  gap: 20px;
+  padding: 0;
+}

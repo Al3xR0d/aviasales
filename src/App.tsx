@@ -1,32 +1,18 @@
 import './App.css';
-import { TicketList } from './components/TicketList/TicketList';
 import { Header } from './components/Header/Header';
-import { ApiTicket, Tickets } from './components/Api/Api';
-import { useEffect, useState } from 'react';
+import { Content } from './components/Content/Content';
+import { TicketProps } from './types/types';
 
 export interface Props {
-  setLoading: (item: Tickets) => void;
-  loading: Tickets;
+  tickets: TicketProps[];
 }
 
 const App = () => {
-  const [loading, setLoading] = useState<Tickets>({ tickets: [], stop: false });
-
-  // console.log(loading);
-
-  useEffect(() => {
-    ApiTicket.getTicketList().then((item) => {
-      if (item) {
-        setLoading(item);
-      }
-    });
-  }, []);
-
   return (
-    <>
+    <div className="app">
       <Header />
-      <TicketList setLoading={setLoading} loading={loading} />
-    </>
+      <Content />
+    </div>
   );
 };
 

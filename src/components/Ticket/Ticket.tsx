@@ -1,18 +1,9 @@
+// import { memo } from 'react';
 import './Ticket.css';
 import S7 from '../../images/S7 Logo.png';
-import { TicketProps } from '../Api/Api';
+import { TicketProps } from '../../types/types';
 
 export const Ticket: React.FC<TicketProps> = ({ price, segments }) => {
-  // const getTickets = (loading) => {};
-
-  // console.log(segments);
-
-  // const departureTime = new Date(segments[0].date).toLocaleTimeString([], {
-  //   timeZone: 'utc',
-  //   hour: '2-digit',
-  //   minute: '2-digit',
-  // });
-
   const getDepartureTime = (date: string) => {
     return new Date(date).toLocaleTimeString([], {
       timeZone: 'utc',
@@ -22,16 +13,12 @@ export const Ticket: React.FC<TicketProps> = ({ price, segments }) => {
   };
 
   const getHours = (hours: number) => {
-    return Math.round(hours / 60);
+    return Math.floor(hours / 60);
   };
 
   const getMinutes = (minutes: number) => {
     return minutes % 60;
   };
-
-  // const hours = Math.round(segments[0].duration / 60);
-
-  // const minutes = segments[0].duration % 60;
 
   const getNewTime = (date: string, hours: number, minutes: number) => {
     let dateObj = new Date(date);
