@@ -1,4 +1,3 @@
-// import { memo } from 'react';
 import './Ticket.css';
 import S7 from '../../images/S7 Logo.png';
 import { TicketProps } from '../../types/types';

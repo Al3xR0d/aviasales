@@ -1,18 +1,5 @@
 import { createSlice, PayloadAction, current } from '@reduxjs/toolkit';
-
-interface FiltersValue {
-  isChecked: boolean;
-  label: string;
-  count?: number;
-}
-
-export interface Filters {
-  all: FiltersValue;
-  noTransfer: FiltersValue;
-  oneTransfer: FiltersValue;
-  twoTransfers: FiltersValue;
-  threeTransfers: FiltersValue;
-}
+import { Filters, FiltersValue } from '../../types/types';
 
 const initialState: Filters = {
   all: { isChecked: true, label: 'Все' },

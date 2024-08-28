@@ -29,3 +29,21 @@ export interface TicketState extends Tickets {
   error: string;
   visibleTickets: number;
 }
+
+export interface FiltersValue {
+  isChecked: boolean;
+  label: string;
+  count?: number;
+}
+
+export interface Filters {
+  all: FiltersValue;
+  noTransfer: FiltersValue;
+  oneTransfer: FiltersValue;
+  twoTransfers: FiltersValue;
+  threeTransfers: FiltersValue;
+}
+
+export interface Props {
+  tickets: TicketProps[];
+}

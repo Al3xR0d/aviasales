@@ -2,7 +2,7 @@ import { AppDispatch } from '../store';
 import { ApiTicket } from '../../components/Api/Api';
 import { ticketSlice } from './TicketsSlice';
 import { filtersSlice } from './FiltersSlice';
-import { Filters } from './FiltersSlice';
+import { Filters } from '../../types/types';
 
 export const fectchTickets = () => async (dispatch: AppDispatch) => {
   try {

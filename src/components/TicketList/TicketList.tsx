@@ -1,10 +1,9 @@
 import './TicketList.css';
 import { Ticket } from '../Ticket/Ticket';
-import { Props } from '../../App';
+import { Props } from '../../types/types';
 import { v4 as uuid } from 'uuid';
 
 export const TicketList = ({ tickets }: Props) => {
-
   return (
     <>
       <div className="tickets">
