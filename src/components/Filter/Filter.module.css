@@ -1,0 +1,18 @@
+.filterCard {
+  width: 232px;
+  height: 252px;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: rgb(74, 74, 74);
+  font-family: Open Sans;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+  text-transform: math-auto;
+}

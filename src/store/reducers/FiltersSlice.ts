@@ -1,32 +1,34 @@
 import { createSlice, PayloadAction, current } from '@reduxjs/toolkit';
-import { Filters, FiltersValue } from '../../types/types';
+import { Filters, FiltersValue, Filter } from '../../types/types';
 
 const initialState: Filters = {
-  all: { isChecked: true, label: 'Все' },
-  noTransfer: { isChecked: true, label: 'Без пересадок', count: 0 },
-  oneTransfer: { isChecked: true, label: '1 пересадка', count: 1 },
-  twoTransfers: { isChecked: true, label: '2 пересадки', count: 2 },
-  threeTransfers: { isChecked: true, label: '3 пересадки', count: 3 },
+  [Filter.all]: { isChecked: true, label: 'Все' },
+  [Filter.noTransfer]: { isChecked: true, label: 'Без пересадок', count: 0 },
+  [Filter.oneTransfer]: { isChecked: true, label: '1 пересадка', count: 1 },
+  [Filter.twoTransfers]: { isChecked: true, label: '2 пересадки', count: 2 },
+  [Filter.threeTransfers]: { isChecked: true, label: '3 пересадки', count: 3 },
 };
 
 const isAllChecked = (state: Filters) => {
-  const arr = Object.entries(current(state)).map((value) => {
-    return value[1];
-  });
-  return arr.filter((el: FiltersValue) => el.label !== 'Все').every((el: FiltersValue) => el.isChecked);
+  return Object.entries(current(state))
+    .filter((el) => el[0] !== Filter.all)
+    .map((value) => {
+      return value[1];
+    })
+    .every((el: FiltersValue) => el.isChecked);
 };
 
 export const filtersSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
-    selectFilter(state: Filters, action: PayloadAction<keyof Filters>) {
+    handleSelectFilter(state: Filters, action: PayloadAction<keyof Filters>) {
       state[action.payload].isChecked = !state[action.payload].isChecked;
       const allSelected = isAllChecked(state);
       if (allSelected) state.all.isChecked = true;
       if (!allSelected) state.all.isChecked = false;
     },
-    all(state: Filters) {
+    handleSelectAll(state: Filters) {
       state.all.isChecked = !state.all.isChecked;
       state.noTransfer.isChecked = state.all.isChecked;
       state.oneTransfer.isChecked = state.all.isChecked;

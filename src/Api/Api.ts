@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Tickets } from '../../types/types';
+import { Tickets } from '../types/types';
 
 export class Api {
   url: string;

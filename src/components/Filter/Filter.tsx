@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card } from 'antd';
-import './Filter.css';
+import styles from './Filter.module.css';
+import '../../index.css';
 import { Checkbox } from 'antd';
-import { useAppSelector, useAppDispatch } from '../hooks/redux';
-import { filterTickets } from '../../store/reducers/ActionCreators';
+import { useAppSelector, useAppDispatch } from '../../store/hooks/redux';
+import { filterTickets } from '../../store/ActionCreators';
 
 export const Filter: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -13,9 +14,9 @@ export const Filter: React.FC = () => {
   };
 
   return (
-    <Card className="filterCard">
+    <Card className={styles.filterCard}>
       <p>Количество пересадок</p>
-      <div className="checkboxes">
+      <div className={styles.checkboxes}>
         {Object.entries(filters).map(([key, value]) => (
           <Checkbox onChange={() => handleChange(key)} checked={value.isChecked} key={key}>
             {value.label}

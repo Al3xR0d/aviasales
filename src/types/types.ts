@@ -36,14 +36,12 @@ export interface FiltersValue {
   count?: number;
 }
 
-export interface Filters {
-  all: FiltersValue;
-  noTransfer: FiltersValue;
-  oneTransfer: FiltersValue;
-  twoTransfers: FiltersValue;
-  threeTransfers: FiltersValue;
+export enum Filter {
+  all = 'all',
+  noTransfer = 'noTransfer',
+  oneTransfer = 'oneTransfer',
+  twoTransfers = 'twoTransfers',
+  threeTransfers = 'threeTransfers',
 }
 
-export interface Props {
-  tickets: TicketProps[];
-}
+export type Filters = Record<Filter, FiltersValue>;

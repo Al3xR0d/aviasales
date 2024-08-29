@@ -7,3 +7,106 @@
   letter-spacing: 0px;
   background: rgb(243, 247, 250);
 }
+
+.ant-tabs-nav-list {
+  width: 542px;
+}
+
+.ant-tabs-tab {
+  background: black;
+  padding: 15px !important;
+  border: 1px solid rgb(223, 229, 236) !important;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255);
+  width: 100%;
+}
+
+:where(.css-dev-only-do-not-override-1c0na6j).ant-tabs .ant-tabs-tab + .ant-tabs-tab {
+  margin: 0;
+}
+
+.ant-tabs-tab .ant-tabs-tab-active {
+  background-color: rgb(33, 150, 243) !important;
+}
+:where(.css-dev-only-do-not-override-1c0na6j).ant-tabs .ant-tabs-tab:hover {
+  background: rgb(33, 150, 243);
+}
+
+:where(.css-dev-only-do-not-override-1c0na6j).ant-tabs {
+  background: #fff;
+}
+
+:where(.css-dev-only-do-not-override-1c0na6j).ant-tabs .ant-tabs-tab {
+  color: rgb(74, 74, 74);
+  justify-content: center;
+}
+
+:where(.css-dev-only-do-not-override-1c0na6j).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #fff;
+}
+
+.ant-tabs-tab + .ant-tabs-tab-active {
+  background-color: rgb(33, 150, 243);
+  color: white;
+}
+
+.buttons > .button {
+  border-radius: 8px 8px 8px 8px;
+}
+
+:where(.css-dev-only-do-not-override-1c0na6j).ant-tabs .ant-tabs-ink-bar {
+  background: transparent;
+}
+
+.ant-tabs .ant-tabs-top .ant-tabs-mobile .ant-tabs-centered button .css-dev-only-do-not-override-1c0na6j {
+  width: 542px;
+}
+
+.ant-tabs-nav-list > .ant-tabs-tab-active {
+  background: rgb(33, 150, 243);
+}
+
+.ant-tabs-tab:hover {
+  color: #fff !important;
+}
+
+div[data-node-key='cheapest'] {
+  border-radius: 8px 0 0 8px;
+}
+
+div[data-node-key='optimal'] {
+  border-radius: 0 8px 8px 0;
+}
+
+:where(.css-dev-only-do-not-override-1c0na6j).ant-card .ant-card-body {
+  padding: 0 20px;
+}
+
+:where(.css-dev-only-do-not-override-1c0na6j).ant-card {
+  color: rgb(74, 74, 74);
+  font-family: Open Sans;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 12px;
+  letter-spacing: 0.5px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #fff !important;
+  border-color: rgb(33, 150, 243) !important;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: rgb(33, 150, 243) !important;
+}
+
+.ant-checkbox-inner {
+  border-color: rgb(154, 187, 206) !important;
+}
+
+.ant-checkbox {
+  border-radius: 2px;
+  transform: scale(1.2);
+}

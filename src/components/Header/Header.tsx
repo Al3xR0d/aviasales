@@ -1,11 +1,11 @@
 import React from 'react';
-import './Header.css';
+import styles from './Header.module.css';
 import logo from '../../images/Logo.png';
 
 export const Header: React.FC = () => (
   <>
-    <div className="header">
-      <div className="logo">
+    <div className={styles.header}>
+      <div className={styles.logo}>
         <img src={logo} />
       </div>
     </div>

@@ -1,16 +1,20 @@
-import './TicketList.css';
+import { FC } from 'react';
+import styles from './TicketList.module.css';
 import { Ticket } from '../Ticket/Ticket';
-import { Props } from '../../types/types';
-import { v4 as uuid } from 'uuid';
+import { TicketProps } from '../../types/types';
 
-export const TicketList = ({ tickets }: Props) => {
+interface Props {
+  tickets: TicketProps[];
+}
+
+export const TicketList: FC<Props> = ({ tickets }) => {
   return (
     <>
-      <div className="tickets">
-        <ul className="ticketList">
-          {tickets?.map((item) => {
+      <div className={styles.tickets}>
+        <ul className={styles.ticketList}>
+          {tickets?.map((item, index) => {
             return (
-              <li key={uuid()}>
+              <li key={index}>
                 <Ticket price={item.price} carrier={item.carrier} segments={item.segments} />
               </li>
             );

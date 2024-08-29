@@ -2,11 +2,12 @@ import React from 'react';
 import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 import { TabKeys } from '../../types/types';
-import './Content.css';
+import '../../index.css';
+import styles from './Content.module.css';
 import { TicketList } from '../TicketList/TicketList';
-import { useAppSelector, useAppDispatch } from '../hooks/redux';
+import { useAppSelector, useAppDispatch } from '../../store/hooks/redux';
 import { useEffect } from 'react';
-import { fectchTickets } from '../../store/reducers/ActionCreators';
+import { fectchTickets } from '../../store/ActionCreators';
 import { Filter } from '../Filter/Filter';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Flex, Spin, Button } from 'antd';
@@ -34,6 +35,7 @@ export const Content: React.FC = () => {
   const dispatch = useAppDispatch();
   const { isLoading, error, visibleTickets } = useAppSelector((state) => state.ticketReducer);
   const filteredTickets = useSelector(selectFilteredTickets);
+
   useEffect(() => {
     dispatch(fectchTickets());
   }, []);
@@ -43,31 +45,42 @@ export const Content: React.FC = () => {
   };
 
   return (
-    <div className="content">
-      <div className="filter">
+    <div className={styles.content}>
+      <div className={styles.filter}>
         <Filter />
       </div>
-      <div className="content__buttonsAndTickets">
-        <div className="buttons">
-          <Tabs centered defaultActiveKey={TabKeys.cheapest} className="button" items={items} onChange={onChange} />
+      <div>
+        <div className={styles.buttons}>
+          <Tabs
+            centered
+            defaultActiveKey={TabKeys.cheapest}
+            className={styles.button}
+            items={items}
+            onChange={onChange}
+          />
         </div>
         {isLoading && (
           <>
-            <Flex className="spin" align="center" gap="middle">
+            <Flex className={styles.spin} align="center" gap="middle">
               <Spin indicator={<LoadingOutlined style={{ fontSize: 48 }} spin />} />
             </Flex>
           </>
         )}
-        {error && <Alert message="Error" className="alert" description={error} type="error" showIcon />}
+        {error && <Alert message="Error" className={styles.alert} description={error} type="error" showIcon />}
         {filteredTickets.length === 0 && !isLoading && !error ? (
-          <Alert message="Рейсов, подходящих под заданные фильтры, не найдено" className="alert" type="info" showIcon />
+          <Alert
+            message="Рейсов, подходящих под заданные фильтры, не найдено"
+            className={styles.alert}
+            type="info"
+            showIcon
+          />
         ) : (
           <>
             <TicketList tickets={filteredTickets.slice(0, visibleTickets)} />
             <Flex gap="small" wrap>
               {!isLoading && !error ? (
                 <Button
-                  className="ticketsButton"
+                  className={styles.ticketsButton}
                   type="primary"
                   disabled={filteredTickets.length <= visibleTickets}
                   onClick={() => dispatch(getNewFiveTickets())}

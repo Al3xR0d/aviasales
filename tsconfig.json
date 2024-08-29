@@ -1,5 +1,8 @@
 {
   "files": [],
+  "compilerOptions": {
+    "plugins": [{ "name": "ts-css-modules-vite-plugin" }]
+  },
   "references": [
     {
       "path": "./tsconfig.app.json"

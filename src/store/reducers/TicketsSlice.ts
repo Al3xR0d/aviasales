@@ -14,16 +14,16 @@ export const ticketSlice = createSlice({
   name: 'ticket',
   initialState,
   reducers: {
-    ticketsFetching(state) {
+    handleTicketsFetch(state) {
       state.isLoading = true;
     },
-    ticketsFetchingSuccess(state: TicketState, action: PayloadAction<Tickets>) {
+    handleTicketsFetchSuccess(state: TicketState, action: PayloadAction<Tickets>) {
       state.isLoading = false;
       state.error = '';
       state.tickets = action.payload.tickets;
       state.stop = action.payload.stop;
     },
-    ticketsFetchingError(state, action: PayloadAction<string>) {
+    handleTicketsFetchError(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },

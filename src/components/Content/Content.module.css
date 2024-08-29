@@ -1,0 +1,35 @@
+.buttons {
+  display: flex;
+  gap: 0;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  margin-right: 105px;
+}
+
+.button {
+  height: 50px;
+  border-radius: 0%;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.spin {
+  display: flex;
+  justify-content: center;
+}
+
+.ticketsButton {
+  width: 545px;
+  height: 50px;
+  border-radius: 5px;
+  background: rgb(33, 150, 243);
+  margin-top: 10px;
+}
+
+.alert {
+  width: 543px;
+}
