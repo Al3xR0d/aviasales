@@ -1,7 +1,7 @@
-import { AppDispatch } from './store';
 import { ApiTicket } from '../Api/Api';
-import { ticketSlice } from './reducers/TicketsSlice';
 import { filtersSlice } from './reducers/FiltersSlice';
+import { ticketSlice } from './reducers/TicketsSlice';
+import { AppDispatch } from './store';
 import { Filters } from '../types/types';
 
 export const fectchTickets = () => async (dispatch: AppDispatch) => {

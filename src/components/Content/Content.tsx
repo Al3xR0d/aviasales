@@ -8,7 +8,7 @@ import { TicketList } from '../TicketList/TicketList';
 import { useAppSelector, useAppDispatch } from '../../store/hooks/redux';
 import { useEffect } from 'react';
 import { fectchTickets } from '../../store/ActionCreators';
-import { Filter } from '../Filter/Filter';
+import { Filters } from '../Filter/Filter';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Flex, Spin, Button } from 'antd';
 import { Alert } from 'antd';
@@ -38,7 +38,7 @@ export const Content: React.FC = () => {
 
   useEffect(() => {
     dispatch(fectchTickets());
-  }, []);
+  }, [dispatch]);
 
   const onChange = (key: string) => {
     dispatch(getSortType(key));
@@ -47,7 +47,7 @@ export const Content: React.FC = () => {
   return (
     <div className={styles.content}>
       <div className={styles.filter}>
-        <Filter />
+        <Filters />
       </div>
       <div>
         <div className={styles.buttons}>

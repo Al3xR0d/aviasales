@@ -44,4 +44,4 @@ export enum Filter {
   threeTransfers = 'threeTransfers',
 }
 
-export type Filters = Record<Filter, FiltersValue>;
+export type Filters = Record<Filter, boolean>;

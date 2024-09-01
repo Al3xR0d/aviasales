@@ -1,4 +1,5 @@
 import { FC } from 'react';
+// import styles from './TicketList.module.css';
 import styles from './TicketList.module.css';
 import { Ticket } from '../Ticket/Ticket';
 import { TicketProps } from '../../types/types';

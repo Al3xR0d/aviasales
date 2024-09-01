@@ -1,6 +1,7 @@
 import { RootState } from './store';
 import { createSelector } from 'reselect';
 import { TabKeys } from '../types/types';
+import { filtersMap } from '../constans/constans';
 
 export const selectTickets = (state: RootState) => state.ticketReducer.tickets;
 export const selectFilter = (state: RootState) => state.filterReducer;
@@ -12,7 +13,7 @@ export const selectFilteredTickets = createSelector(
     const filtered = tickets.filter((ticket) => {
       return ticket.segments.every((segment) => {
         const stops = segment.stops.length;
-        return Object.entries(filters).some(([, filter]) => filter.isChecked && stops === filter.count);
+        return Object.entries(filters).some(([key, value]) => value && stops === filtersMap.get(key)?.count);
       });
     });
     if (sortType === TabKeys.fastest)

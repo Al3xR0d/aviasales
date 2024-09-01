@@ -1,21 +1,17 @@
 import { createSlice, PayloadAction, current } from '@reduxjs/toolkit';
-import { Filters, FiltersValue, Filter } from '../../types/types';
+import { Filters, Filter } from '../../types/types';
 
 const initialState: Filters = {
-  [Filter.all]: { isChecked: true, label: 'Все' },
-  [Filter.noTransfer]: { isChecked: true, label: 'Без пересадок', count: 0 },
-  [Filter.oneTransfer]: { isChecked: true, label: '1 пересадка', count: 1 },
-  [Filter.twoTransfers]: { isChecked: true, label: '2 пересадки', count: 2 },
-  [Filter.threeTransfers]: { isChecked: true, label: '3 пересадки', count: 3 },
+  [Filter.all]: true,
+  [Filter.noTransfer]: true,
+  [Filter.oneTransfer]: true,
+  [Filter.twoTransfers]: true,
+  [Filter.threeTransfers]: true,
 };
 
 const isAllChecked = (state: Filters) => {
-  return Object.entries(current(state))
-    .filter((el) => el[0] !== Filter.all)
-    .map((value) => {
-      return value[1];
-    })
-    .every((el: FiltersValue) => el.isChecked);
+  const { all, ...transfers } = current(state);
+  return Object.values(transfers).every((item) => item);
 };
 
 export const filtersSlice = createSlice({
@@ -23,17 +19,17 @@ export const filtersSlice = createSlice({
   initialState,
   reducers: {
     handleSelectFilter(state: Filters, action: PayloadAction<keyof Filters>) {
-      state[action.payload].isChecked = !state[action.payload].isChecked;
+      state[action.payload] = !state[action.payload];
       const allSelected = isAllChecked(state);
-      if (allSelected) state.all.isChecked = true;
-      if (!allSelected) state.all.isChecked = false;
+      if (allSelected) state.all = true;
+      if (!allSelected) state.all = false;
     },
     handleSelectAll(state: Filters) {
-      state.all.isChecked = !state.all.isChecked;
-      state.noTransfer.isChecked = state.all.isChecked;
-      state.oneTransfer.isChecked = state.all.isChecked;
-      state.twoTransfers.isChecked = state.all.isChecked;
-      state.threeTransfers.isChecked = state.all.isChecked;
+      state.all = !state.all;
+      state.noTransfer = state.all;
+      state.oneTransfer = state.all;
+      state.twoTransfers = state.all;
+      state.threeTransfers = state.all;
     },
   },
 });
